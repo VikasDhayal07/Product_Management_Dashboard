@@ -26,6 +26,7 @@ A React.js application built with Next.js and Redux Toolkit to manage a list of 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/VikasDhayal07/Product_Management_Dashboard
+   git clone https://github.com/VikasDhayal07/Product_Management_Dashboard.git
 npm install
+
 npm run dev
