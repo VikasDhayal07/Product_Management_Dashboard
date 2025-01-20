@@ -26,19 +26,56 @@ const Home = () => {
         : 0
     );
 
+  const homeContainerStyle = {
+    padding: "30px",
+    fontFamily: "'Arial', sans-serif",
+    backgroundColor: "#ffffff",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+    borderRadius: "10px",
+    marginBottom: "30px",
+  };
+
+  const titleStyle = {
+    textAlign: "center",
+    color: "#333",
+    marginBottom: "20px",
+  };
+
+  const filterStyle = {
+    display: "flex",
+    justifyContent: "center",
+    gap: "15px",
+    marginBottom: "20px",
+  };
+
+  const selectStyle = {
+    padding: "10px",
+    borderRadius: "5px",
+    border: "1px solid #ccc",
+  };
+
+  const productContainerStyle = {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
+    gap: "20px",
+    justifyContent: "center",
+  };
+
   return (
-    <div>
-      <h1>Product Dashboard</h1>
-      <FilterDropdown
-        categories={[...new Set(items.map((product) => product.category))]}
-        onChange={setFilter}
-      />
-      <select onChange={(e) => setSort(e.target.value)}>
-        <option value="">Sort by Price</option>
-        <option value="asc">Ascending</option>
-        <option value="desc">Descending</option>
-      </select>
-      <div>
+    <div style={homeContainerStyle}>
+      <h1 style={titleStyle}>Product Dashboard</h1>
+      <div style={filterStyle}>
+        <FilterDropdown
+          categories={[...new Set(items.map((product) => product.category))]}
+          onChange={setFilter}
+        />
+        <select style={selectStyle} onChange={(e) => setSort(e.target.value)}>
+          <option value="">Sort by Price</option>
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
+        </select>
+      </div>
+      <div style={productContainerStyle}>
         {status === "loading" ? (
           <p>Loading...</p>
         ) : (
